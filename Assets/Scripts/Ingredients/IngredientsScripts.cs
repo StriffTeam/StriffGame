@@ -12,7 +12,7 @@ public class IngredientsScripts : MonoBehaviour
         if (this.CompareTag("Knife"))
             rigid.velocity = new Vector2(0, -5);
         else
-            rigid.velocity = new Vector2(0,Random.Range(-4,-2));
+            rigid.velocity = new Vector2(0,Random.Range(-4,-1));
     }
 
    
