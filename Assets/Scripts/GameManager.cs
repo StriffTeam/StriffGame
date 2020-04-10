@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
                 if (fallingIngredients[i] == null && Time.time > dropTime)
                 {
                     Vector2 position = new Vector2(Random.Range(-7.0f, 7.0f), startZoneTransform.position.y);
-                    fallingIngredients[i] = Instantiate(ingredients[Random.Range(0, 3)], position, Quaternion.identity);
+                    fallingIngredients[i] = Instantiate(ingredients[Random.Range(0, 4)], position, Quaternion.identity);
                     ingredientsCount++;
                     dropTime = Time.time + 0.5f;
                 }
