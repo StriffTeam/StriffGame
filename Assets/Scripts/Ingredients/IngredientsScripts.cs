@@ -24,21 +24,5 @@ public class IngredientsScripts : MonoBehaviour
             GameManager._Instance.ingredientsCount--;
             //Puan Dusur
         }
-        if (collision.CompareTag("Player"))
-        {
-            if (this.CompareTag("Knife"))
-            {
-               //Skordusur
-            }
-            else
-            {
-                
-                //inventory ekle
-            }
-            GameManager._Instance.ingredientsCount--;
-            Destroy(this.gameObject);
-
-        }
-       
     }
 }
