@@ -8,6 +8,7 @@ TagManager:
   - CookingSpot
   - Knife
   - DestroyZone
+  - Ingredient
   layers:
   - Default
   - TransparentFX
