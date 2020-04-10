@@ -12,7 +12,7 @@ public class IngredientsScripts : MonoBehaviour
         if (this.CompareTag("Knife"))
             rigid.velocity = new Vector2(0, -5);
         else
-            rigid.velocity = new Vector2(0,Random.Range(-4,-2));
+            rigid.velocity = new Vector2(0,Random.Range(-4,-1));
     }
 
    
@@ -24,21 +24,5 @@ public class IngredientsScripts : MonoBehaviour
             GameManager._Instance.ingredientsCount--;
             //Puan Dusur
         }
-        if (collision.CompareTag("Player"))
-        {
-            if (this.CompareTag("Knife"))
-            {
-               //Skordusur
-            }
-            else
-            {
-                
-                //inventory ekle
-            }
-            GameManager._Instance.ingredientsCount--;
-            Destroy(this.gameObject);
-
-        }
-       
     }
 }
