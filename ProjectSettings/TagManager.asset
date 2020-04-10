@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Trash
   - CookingSpot
+  - Knife
+  - DestroyZone
   layers:
   - Default
   - TransparentFX
