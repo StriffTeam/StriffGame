@@ -43,12 +43,16 @@ public class Movement : MonoBehaviour
         if (isNearTrash)
         {
             if (Input.GetKeyDown(KeyCode.Space))
-                Debug.Log("Çöpe Atılıyor...");
+            {
+                //Lazım olmayan itemler çöpe atılacak   
+            }
         }
         else if (isNearCookingSpot)
         {
             if (Input.GetKey(KeyCode.Space))
-                Debug.Log("Pişiriliyor...");
+            {
+                //Yemek Pişirilecek   
+            }
         }
     }
 
