@@ -6,8 +6,6 @@ public class Movement : MonoBehaviour
     private Rigidbody2D _rigidbody2d;
     private bool isFacingLeft;
     private bool isFacingRight = true;
-    private bool isNearCookingSpot;
-    private bool isNearTrash;
     public int speed = 10;
 
     private void Start()
@@ -19,47 +17,7 @@ public class Movement : MonoBehaviour
     {
         MovePlayer();
     }
-
-    private void Update()
-    {
-        Action();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.CompareTag("CookingSpot"))
-            isNearCookingSpot = true;
-        else if (collider.CompareTag("Trash")) isNearTrash = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.CompareTag("CookingSpot") || collider.CompareTag("Trash"))
-        {
-            isNearTrash = false;
-            isNearCookingSpot = false;
-        }
-    }
-
-    private void Action()
-    {
-        if (isNearTrash)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                RandomRecipe rnd = RandomRecipe.GetInstance();
-                rnd.GenerateRandomRecipe();
-            }
-        }
-        else if (isNearCookingSpot)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                //Yemek Pişirilecek   
-            }
-        }
-    }
-
+    
     private void MovePlayer()
     {
         var move = Input.GetAxis("Horizontal");

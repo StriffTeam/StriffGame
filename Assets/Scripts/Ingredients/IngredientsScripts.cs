@@ -30,7 +30,6 @@ public class IngredientsScripts : MonoBehaviour
         if (collision.CompareTag("DestroyZone"))
         {
             Destroy(gameObject);
-            
             GameManager.ingredientsCount--;
         }
     }
