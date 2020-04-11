@@ -1,68 +1,41 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Random = UnityEngine.Random;
+﻿using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject[] ingredients;
-    GameObject[] fallingIngredients = new GameObject[4];
+    private static GameManager instance;
+    private float dropTime;
+    private readonly GameObject[] fallingIngredients = new GameObject[4];
 
-    [SerializeField]
-    Transform startZoneTransform;
+    [SerializeField] private GameObject[] ingredients;
 
     public int ingredientsCount;
-    float dropTime;
 
-    private static GameManager instance;
+    [SerializeField] private Transform startZoneTransform;
 
     public static GameManager _Instance
     {
         get
         {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<GameManager>();
-            }
+            if (instance == null) instance = FindObjectOfType<GameManager>();
             return instance;
         }
     }
 
-    private void Start()
-    {
-        RecipeParser parser = new RecipeParser();
-        Recipe deneme = parser.GetRandomRecipe();
-
-        foreach (var item in deneme.Ingredients)
-        {
-            Debug.Log(item.Name + " " + item.Number);
-        }
-    }
-
-    void Update()
+    private void Update()
     {
         GenerateRandomIngredients();
     }
 
-    void GenerateRandomIngredients()
+    private void GenerateRandomIngredients()
     {
         if (ingredientsCount <= 5)
-        {
-            for (int i = 0; i < fallingIngredients.Length; i++)
-            {
-
+            for (var i = 0; i < fallingIngredients.Length; i++)
                 if (fallingIngredients[i] == null && Time.time > dropTime)
                 {
-                    Vector2 position = new Vector2(Random.Range(-7.0f, 7.0f), startZoneTransform.position.y);
+                    var position = new Vector2(Random.Range(-7.0f, 7.0f), startZoneTransform.position.y);
                     fallingIngredients[i] = Instantiate(ingredients[Random.Range(0, 4)], position, Quaternion.identity);
                     ingredientsCount++;
                     dropTime = Time.time + 0.5f;
                 }
-
-            }
-        }   
-    
     }
 }

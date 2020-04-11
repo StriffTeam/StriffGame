@@ -2,16 +2,26 @@
 using System.IO;
 using UnityEngine;
 
-public class RecipeParser
+//Singleton Class
+public class RandomRecipe
 {
     private const string DIRECTORY_PATH = "./Assets/Recipes";
+
+    private static RandomRecipe _instance;
     private readonly DirectoryInfo dInfo;
     private readonly FileInfo[] files;
 
-    public RecipeParser()
+    private RandomRecipe()
     {
         dInfo = new DirectoryInfo(DIRECTORY_PATH);
         files = dInfo.GetFiles("*.txt");
+    }
+
+    public static RandomRecipe GetInstance()
+    {
+        if (_instance == null) _instance = new RandomRecipe();
+
+        return _instance;
     }
 
     public Recipe GetRandomRecipe()
