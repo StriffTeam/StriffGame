@@ -10,6 +10,7 @@ public class RandomRecipe
     private static RandomRecipe _instance;
     private readonly DirectoryInfo dInfo;
     private readonly FileInfo[] files;
+    public int inventoryCount;
 
     public int numberOfIngredients { get; set; }
     public Recipe randomRecipe { get; set; }
