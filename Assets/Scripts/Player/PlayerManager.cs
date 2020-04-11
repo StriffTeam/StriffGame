@@ -72,6 +72,14 @@ public class PlayerManager : MonoBehaviour
                 if (IsInventoryCorrect(inventoryItems))
                 {
                     Debug.Log("Doğru");
+                    UIManager._Instance.score += 10;
+                    foreach (GameObject inventoryItem in inventoryItems)
+                    {
+                        inventoryItem.GetComponent<SpriteRenderer>().sprite = null;
+                    }
+
+
+                    UIManager._Instance.NewRecipe();
                 }
                 else
                 {
