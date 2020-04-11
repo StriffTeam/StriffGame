@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
@@ -66,9 +67,16 @@ public class PlayerManager : MonoBehaviour
         }
         else if (isNearCookingSpot)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                //Yemek Pişirilecek   
+                if (IsInventoryCorrect(inventoryItems))
+                {
+                    Debug.Log("Doğru");
+                }
+                else
+                {
+                    Debug.Log("Yanlış");
+                }
             }
         }
     }
@@ -129,6 +137,35 @@ public class PlayerManager : MonoBehaviour
         return true;
     }
 
+    private bool IsInventoryCorrect(GameObject[] inventory)
+    {
+        if (!IsInventoryFull(inventory)) return false;
+
+        var rnd = RandomRecipe.GetInstance();
+        Dictionary<string, int> inventoryIngreds = new Dictionary<string, int>();
+
+        foreach (var item in inventory)
+        {
+            if (!IsIngredientsContains(rnd.randomRecipe, item.GetComponent<SpriteRenderer>().sprite.name)) return false;
+            
+            if (inventoryIngreds.ContainsKey(item.GetComponent<SpriteRenderer>().sprite.name))
+            {
+                inventoryIngreds[item.GetComponent<SpriteRenderer>().sprite.name] += 1;
+            }
+            else
+            {
+                inventoryIngreds.Add(item.GetComponent<SpriteRenderer>().sprite.name, 1);
+            }
+        }
+
+        foreach (var rndItem in rnd.randomRecipe.Ingredients)
+        {
+            if (inventoryIngreds[rndItem.Name] != rndItem.Number) return false;
+        }
+
+        return true;
+    }
+    
     private void AddToInventory(GameObject ingredient)
     {
         foreach (var item in inventoryItems)
