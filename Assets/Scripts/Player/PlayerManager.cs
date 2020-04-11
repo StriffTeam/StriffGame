@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour
         if (collider.CompareTag("Knife"))
         {
             Destroy(collider.gameObject);
-            GameManager._Instance.ingredientsCount--;
+            GameManager.ingredientsCount--;
 
             UIManager._Instance.HealtControl(lives);
             lives--;
@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
             {
                 AddToInventory(collider.gameObject);
                 Destroy(collider.gameObject);
-                GameManager._Instance.ingredientsCount--;
+                GameManager.ingredientsCount--;
             }
         }
     }
