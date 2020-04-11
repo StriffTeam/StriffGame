@@ -2,25 +2,15 @@
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager instance;
     private float dropTime;
     private readonly GameObject[] fallingIngredients = new GameObject[4];
 
     [SerializeField] private GameObject[] ingredients;
 
-    public int ingredientsCount;
+    public static int ingredientsCount;
 
     [SerializeField] private Transform startZoneTransform;
-
-    public static GameManager _Instance
-    {
-        get
-        {
-            if (instance == null) instance = FindObjectOfType<GameManager>();
-            return instance;
-        }
-    }
-
+    
     private void Update()
     {
         GenerateRandomIngredients();
