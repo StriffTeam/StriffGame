@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
 
     public Text recipeHeader;
     public Text recipeIngredients;
+    public Text txt_Score;
+
+    public int score=0;
 
     public static UIManager _Instance
     {
@@ -34,8 +37,12 @@ public class UIManager : MonoBehaviour
         foreach (var ingredient in rnd.randomRecipe.Ingredients) sb.Append(ingredient.Number + " x " + ingredient.Name + "\n");
 
         recipeIngredients.text = sb.ToString();
-    }
 
+    }
+    private void Update()
+    {
+        txt_Score.text = score.ToString();
+    }
     public void HealtControl(int healt)
     {
         Img_Healts[healt - 1].fillAmount = 0;
@@ -47,4 +54,6 @@ public class UIManager : MonoBehaviour
         gameMenu.SetActive(true);
         Time.timeScale = 0;
     }
+
+
 }

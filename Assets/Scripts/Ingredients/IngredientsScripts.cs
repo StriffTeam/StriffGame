@@ -29,8 +29,8 @@ public class IngredientsScripts : MonoBehaviour
     {
         if (collision.CompareTag("DestroyZone"))
         {
-            Destroy(collision.gameObject);
-            Debug.Log("Bok");
+            Destroy(gameObject);
+            
             GameManager.ingredientsCount--;
         }
     }
