@@ -31,12 +31,21 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(collider.gameObject);
             GameManager._Instance.ingredientsCount--;
+            
+            UIManager._Instance.HealtControl(lives);
+            lives--;
 
+        }
+        else
+        {
+            GameManager._Instance.ingredientsCount--;
+            if (!IsInventoryFull(InventoryItems))
             {
-                GameManager._Instance.ingredientsCount--;
                 AddToInventory(collider.gameObject);
                 Destroy(collider.gameObject);
             }
+            
+            
         }
     }
         private bool IsInventoryFull(GameObject[] Inventory)
