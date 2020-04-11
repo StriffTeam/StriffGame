@@ -31,7 +31,7 @@ public class IngredientsScripts : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("Bok");
-            GameManager._Instance.ingredientsCount--;
+            GameManager.ingredientsCount--;
         }
     }
 }
