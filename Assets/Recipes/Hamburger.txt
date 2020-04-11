@@ -1,5 +1,5 @@
 Hamburger
-1 Lettuce
+3 Potato
 1 Steak
 2 Tomato
 2 Bread
