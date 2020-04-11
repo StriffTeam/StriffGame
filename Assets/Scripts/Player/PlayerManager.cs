@@ -7,9 +7,23 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    private int lives = 3;
+    public int lives = 3;
     public Text livesText;
     public GameObject[] InventoryItems;
+
+    private static PlayerManager instance;
+
+    public static PlayerManager _Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<PlayerManager>();
+            }
+            return instance;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -17,7 +31,9 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(collider.gameObject);
             GameManager._Instance.ingredientsCount--;
-            livesText.text = (--lives).ToString();
+            UIManager._Instance.HealtControl(lives);
+            lives--;
+          
         }else if (collider.CompareTag("Ingredient") && IsInventoryFull(InventoryItems))
         {
             GameManager._Instance.ingredientsCount--;
