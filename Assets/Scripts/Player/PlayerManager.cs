@@ -31,10 +31,7 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(collider.gameObject);
             GameManager._Instance.ingredientsCount--;
-            UIManager._Instance.HealtControl(lives);
-            lives--;
           
-        }else if (collider.CompareTag("Ingredient") && IsInventoryFull(InventoryItems))
         {
             GameManager._Instance.ingredientsCount--;
             AddToInventory(collider.gameObject);
@@ -46,10 +43,10 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (GameObject item in InventoryItems)
         {
-            if (item.GetComponent<SpriteRenderer>().sprite == null) return true;
+            if (item.GetComponent<SpriteRenderer>().sprite == null) return false;
         }
 
-        return false;
+        return true;
     }
 
     private void AddToInventory(GameObject ingredient)
