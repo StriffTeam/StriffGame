@@ -31,34 +31,34 @@ public class PlayerManager : MonoBehaviour
         {
             Destroy(collider.gameObject);
             GameManager._Instance.ingredientsCount--;
-          
-        {
-            GameManager._Instance.ingredientsCount--;
-            AddToInventory(collider.gameObject);
-            Destroy(collider.gameObject);
-        }
-    }
 
-    private bool IsInventoryFull(GameObject[] Inventory)
-    {
-        foreach (GameObject item in InventoryItems)
-        {
-            if (item.GetComponent<SpriteRenderer>().sprite == null) return false;
-        }
-
-        return true;
-    }
-
-    private void AddToInventory(GameObject ingredient)
-    {
-        foreach (GameObject item in InventoryItems)
-        {
-            if (item.GetComponent<SpriteRenderer>().sprite == null)
             {
-                item.GetComponent<SpriteRenderer>().sprite 
-                    = ingredient.GetComponent<SpriteRenderer>().sprite;
-                break;
+                GameManager._Instance.ingredientsCount--;
+                AddToInventory(collider.gameObject);
+                Destroy(collider.gameObject);
             }
         }
     }
-}
+        private bool IsInventoryFull(GameObject[] Inventory)
+        {
+            foreach (GameObject item in InventoryItems)
+            {
+                if (item.GetComponent<SpriteRenderer>().sprite == null) return false;
+            }
+
+            return true;
+        }
+
+        private void AddToInventory(GameObject ingredient)
+        {
+            foreach (GameObject item in InventoryItems)
+            {
+                if (item.GetComponent<SpriteRenderer>().sprite == null)
+                {
+                    item.GetComponent<SpriteRenderer>().sprite
+                        = ingredient.GetComponent<SpriteRenderer>().sprite;
+                    break;
+                }
+            }
+        }
+    }
