@@ -47,7 +47,8 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                //Lazım olmayan itemler çöpe atılacak   
+                RandomRecipe rnd = RandomRecipe.GetInstance();
+                rnd.GenerateRandomRecipe();
             }
         }
         else if (isNearCookingSpot)
