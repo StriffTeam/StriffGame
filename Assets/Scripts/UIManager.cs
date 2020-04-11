@@ -27,11 +27,11 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         var sb = new StringBuilder();
-        var randomRecipe = RandomRecipe.GetInstance();
-        recipe = randomRecipe.GetRandomRecipe();
-        recipeHeader.text = recipe.Name;
+        var rnd = RandomRecipe.GetInstance();
+        rnd.GenerateRandomRecipe();
+        recipeHeader.text = rnd.randomRecipe.Name;
 
-        foreach (var ingredient in recipe.Ingredients) sb.Append(ingredient.Number + " x " + ingredient.Name + "\n");
+        foreach (var ingredient in rnd.randomRecipe.Ingredients) sb.Append(ingredient.Number + " x " + ingredient.Name + "\n");
 
         recipeIngredients.text = sb.ToString();
     }

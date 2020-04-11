@@ -10,7 +10,11 @@ public class RandomRecipe
     private static RandomRecipe _instance;
     private readonly DirectoryInfo dInfo;
     private readonly FileInfo[] files;
+    public int inventoryCount;
 
+    public int numberOfIngredients { get; set; }
+    public Recipe randomRecipe { get; set; }
+    
     private RandomRecipe()
     {
         dInfo = new DirectoryInfo(DIRECTORY_PATH);
@@ -24,7 +28,7 @@ public class RandomRecipe
         return _instance;
     }
 
-    public Recipe GetRandomRecipe()
+    public void GenerateRandomRecipe()
     {
         var random = Random.Range(0, files.Length);
         string name;
@@ -37,8 +41,9 @@ public class RandomRecipe
         {
             var ingredient = lines[i].Split(' ');
             ingredients.Add(new Ingredient(ingredient[1], int.Parse(ingredient[0])));
+            numberOfIngredients += int.Parse(ingredient[0]);
         }
 
-        return new Recipe(name, ingredients);
+        randomRecipe = new Recipe(name, ingredients);
     }
 }
