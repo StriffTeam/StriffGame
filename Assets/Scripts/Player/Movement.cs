@@ -7,6 +7,11 @@ public class Movement : MonoBehaviour
     private bool isFacingLeft;
     private bool isFacingRight = true;
     public int speed = 10;
+    [SerializeField]
+    Sprite[] sprites;
+
+    [SerializeField]
+    Animator anim;
 
     private void Start()
     {
@@ -16,13 +21,27 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+        
     }
     
     private void MovePlayer()
     {
         var move = Input.GetAxis("Horizontal");
         _rigidbody2d.velocity = new Vector2(move * speed, _rigidbody2d.velocity.y);
-
+        if (move == -1)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = sprites[1];
+            anim.SetInteger("move", -1);
+        }
+        else if (move == 1)
+        {
+            this.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            anim.SetInteger("move", 1);
+        }
+        else
+        {
+            anim.SetInteger("move", 0);
+        }
         if (_rigidbody2d.velocity.x < 0 && !isFacingLeft)
         {
             isFacingLeft = true;
