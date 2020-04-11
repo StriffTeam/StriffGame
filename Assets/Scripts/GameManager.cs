@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static int ingredientsCount;
 
     [SerializeField] private Transform startZoneTransform;
-    
+
     private void Update()
     {
         GenerateRandomIngredients();
