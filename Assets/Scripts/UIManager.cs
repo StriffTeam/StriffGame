@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -15,6 +16,8 @@ public class UIManager : MonoBehaviour
     public Text recipeHeader;
     public Text recipeIngredients;
     public Text txt_Score;
+    public Text lbl_Score;
+    public Text gameOverTxtScore;
 
     public int score=0;
 
@@ -44,10 +47,22 @@ public class UIManager : MonoBehaviour
 
     private void OpenGameMenu()
     {
+        Destroy(lbl_Score);
+        Destroy(txt_Score);
+        gameOverTxtScore.text = score.ToString();
         gameMenu.SetActive(true);
         Time.timeScale = 0;
     }
 
+    public void PlayAgainButtonPressed()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void QuitButtonPressed()
+    {
+        Application.Quit();
+    }
     public void NewRecipe()
     {
         var sb = new StringBuilder();
