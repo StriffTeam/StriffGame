@@ -29,14 +29,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        var sb = new StringBuilder();
-        var rnd = RandomRecipe.GetInstance();
-        rnd.GenerateRandomRecipe();
-        recipeHeader.text = rnd.randomRecipe.Name;
-
-        foreach (var ingredient in rnd.randomRecipe.Ingredients) sb.Append(ingredient.Number + " x " + ingredient.Name + "\n");
-
-        recipeIngredients.text = sb.ToString();
+        NewRecipe();
 
     }
     private void Update()
@@ -55,5 +48,15 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    public void NewRecipe()
+    {
+        var sb = new StringBuilder();
+        var rnd = RandomRecipe.GetInstance();
+        rnd.GenerateRandomRecipe();
+        recipeHeader.text = rnd.randomRecipe.Name;
 
+        foreach (var ingredient in rnd.randomRecipe.Ingredients) sb.Append(ingredient.Number + " x " + ingredient.Name + "\n");
+
+        recipeIngredients.text = sb.ToString();
+    }
 }
