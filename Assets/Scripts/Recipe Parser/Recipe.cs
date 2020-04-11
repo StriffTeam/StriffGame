@@ -8,6 +8,6 @@ public class Recipe
         Ingredients = ingredients;
     }
 
-    public string Name { get; set; }
-    public List<Ingredient> Ingredients { get; set; }
+    public string Name { get; }
+    public List<Ingredient> Ingredients { get; }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 using UnityEngine.UI;
@@ -8,9 +9,13 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField]
     Image[] Img_Healts;
-
     [SerializeField]
     GameObject gameMenu;
+
+    public Text recipeHeader;
+    public Text recipeIngredients;
+    
+    Recipe recipe;
 
     private static UIManager instance;
 
@@ -27,7 +32,17 @@ public class UIManager : MonoBehaviour
     }
     void Start()
     {
-        
+        StringBuilder sb = new StringBuilder();
+        RandomRecipe randomRecipe = RandomRecipe.GetInstance();
+        recipe = randomRecipe.GetRandomRecipe();
+        recipeHeader.text = recipe.Name;
+
+        foreach (var ingredient in recipe.Ingredients)
+        {
+            sb.Append(ingredient.Number + " x " + ingredient.Name + "\n");
+        }
+
+        recipeIngredients.text = sb.ToString();
     }
 
    
