@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +27,17 @@ public class GameManager : MonoBehaviour
                 instance = FindObjectOfType<GameManager>();
             }
             return instance;
+        }
+    }
+
+    private void Start()
+    {
+        RecipeParser parser = new RecipeParser();
+        Recipe deneme = parser.GetRandomRecipe();
+
+        foreach (var item in deneme.Ingredients)
+        {
+            Debug.Log(item.Name + " " + item.Number);
         }
     }
 
