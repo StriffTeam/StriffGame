@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
     public AudioSource painAudio;
     public AudioSource dumpAudio;
     public AudioSource collectAudio;
+    public AudioSource cookAudio;
 
     public static PlayerManager _Instance
     {
@@ -78,6 +79,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if (IsInventoryCorrect(inventoryItems))
                 {
+                    cookAudio.Play();
                     UIManager._Instance.score += 10;
                     foreach (GameObject inventoryItem in inventoryItems)
                     {
