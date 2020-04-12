@@ -7,8 +7,16 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Recipes" t="Include">
-          <e p="Deneme.txt" t="Include" />
+          <e p="Barbecue Menu.txt" t="Include" />
+          <e p="Beef Stew.txt" t="Include" />
+          <e p="Breakfast Eggs.txt" t="Include" />
+          <e p="Chef's Special.txt" t="Include" />
+          <e p="Fish and Chips.txt" t="Include" />
+          <e p="French Fries.txt" t="Include" />
           <e p="Hamburger.txt" t="Include" />
+          <e p="Hotdog.txt" t="Include" />
+          <e p="Roasted Pig.txt" t="Include" />
+          <e p="Shrimp Stew.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
           <e p="GameManager.cs" t="Include" />
