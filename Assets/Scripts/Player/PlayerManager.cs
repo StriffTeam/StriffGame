@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
@@ -9,7 +11,9 @@ public class PlayerManager : MonoBehaviour
     private bool isNearCookingSpot;
     private bool isNearTrash;
     public int lives = 3;
-    public Text livesText;
+    public AudioSource painAudio;
+    public AudioSource dumpAudio;
+    public AudioSource collectAudio;
 
     public static PlayerManager _Instance
     {
@@ -34,11 +38,14 @@ public class PlayerManager : MonoBehaviour
 
             UIManager._Instance.HealtControl(lives);
             lives--;
+            
+            painAudio.Play();
         }
         else if (collider.CompareTag("Ingredient"))
         {
             if (!IsInventoryFull(inventoryItems))
             {
+                collectAudio.Play();
                 AddToInventory(collider.gameObject);
                 Destroy(collider.gameObject);
                 GameManager.ingredientsCount--;
@@ -71,7 +78,6 @@ public class PlayerManager : MonoBehaviour
             {
                 if (IsInventoryCorrect(inventoryItems))
                 {
-                    Debug.Log("Doğru");
                     UIManager._Instance.score += 10;
                     foreach (GameObject inventoryItem in inventoryItems)
                     {
@@ -81,10 +87,6 @@ public class PlayerManager : MonoBehaviour
 
                     UIManager._Instance.NewRecipe();
                 }
-                else
-                {
-                    Debug.Log("Yanlış");
-                }
             }
         }
     }
@@ -92,6 +94,7 @@ public class PlayerManager : MonoBehaviour
 
     private void RemoveItemsFromInventory()
     {
+        dumpAudio.Play();
         var rnd = RandomRecipe.GetInstance();
 
         foreach (var item in inventoryItems)
