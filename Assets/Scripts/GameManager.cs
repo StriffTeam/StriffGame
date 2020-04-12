@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void GenerateKnife()
     {
-        if (knifeCount <= 3)
+        if (knifeCount <= 1)
         {
             if (Time.time > dropTimeKnife)
             {
