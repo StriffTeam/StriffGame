@@ -29,8 +29,18 @@ public class IngredientsScripts : MonoBehaviour
     {
         if (collision.CompareTag("DestroyZone"))
         {
-            Destroy(gameObject);
-            GameManager.ingredientsCount--;
+            if (CompareTag("Knife"))
+            {
+                Destroy(gameObject);
+                GameManager.knifeCount--;
+            }
+            else
+            {
+                Destroy(gameObject);
+                GameManager.ingredientsCount--;
+            }
+               
+            
         }
     }
 }

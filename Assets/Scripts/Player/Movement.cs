@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
+       
         
     }
     
