@@ -57,6 +57,8 @@ public class UIManager : MonoBehaviour
     public void PlayAgainButtonPressed()
     {
         Time.timeScale = 1;
+        GameManager.knifeCount = 0;
+        GameManager.ingredientsCount = 0;
         SceneManager.LoadScene("MainScene");
     }
 

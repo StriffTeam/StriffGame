@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         if (collider.CompareTag("Knife"))
         {
             Destroy(collider.gameObject);
-            GameManager.ingredientsCount--;
+            GameManager.knifeCount--;
 
             UIManager._Instance.HealtControl(lives);
             lives--;
