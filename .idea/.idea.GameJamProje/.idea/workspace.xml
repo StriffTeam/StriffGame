@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7187e5ae-b7f7-4a16-aac1-9be2758bc1ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJamProje/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJamProje/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJamProje/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJamProje/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/Meet.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/Meet.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/Patato.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/Patato.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/Tomato.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Ingredients/Tomato.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Recipes.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Recipes.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Recipes/Deneme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Recipes/Deneme.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Recipes/Hamburger.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Recipes/Hamburger.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +61,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/RecipeParser.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Recipe Parser/Recipe.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Recipe Parser/RecipeParser.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Recipe Parser/RandomRecipe.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Movement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingredients/IngredientsScripts.cs" />
@@ -60,6 +68,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/MainSceneUi.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -116,7 +125,7 @@
       <workItem from="1586617047155" duration="2236000" />
       <workItem from="1586619363494" duration="16257000" />
       <workItem from="1586642583872" duration="3299000" />
-      <workItem from="1586681989056" duration="3898000" />
+      <workItem from="1586681989056" duration="5238000" />
     </task>
     <servers />
   </component>
